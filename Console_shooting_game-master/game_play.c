@@ -240,18 +240,18 @@ void DrawStatus(int life)
 	if(bomb==3){
 		printf("                  ");
 		gotoxy(GS_WIDTH+2, 13);
-		printf("<TNT> <TNT> <TNT>");
+		printf("BOMB BOMB BOMB");
 	} // if
 	else if(bomb==2){
 		printf("                 ");
 		gotoxy(GS_WIDTH+2, 13);
-		printf("<TNT> <TNT>");
+		printf("BOMB BOMB");
 	} // else if
 
 	else if(bomb==1){
 		printf("              ");
 		gotoxy(GS_WIDTH+2, 13);
-		printf("<TNT>");
+		printf("BOMB");
 	} // else if
 	else if(bomb==0)
 		printf("                  ");
