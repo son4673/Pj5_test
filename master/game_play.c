@@ -16,13 +16,17 @@
 #define GS_HEIGHT 24 // Game Screen Height
 #define ST_WIDTH 20 // Status Screen Width
 #define ST_HEIGHT 24 // Status Screen Height
+
 #define SCORE_X 70 // Score Location X
 #define SCORE_Y 3 // Score Location Y
-#define LeftBound 1
-#define RightBound 60
-#define FighterWidth 5
-#define NoMissile 23
-#define NoEnemy 9
+
+#define LeftBound 1 // Left boundary
+#define RightBound 60 // Right boundary
+
+#define FighterWidth 5 // Fighters length
+
+#define NoMissile 23 // 미사일이 발사된 후 갈 수 있는 최대 y축으로의 범위 
+#define NoEnemy 8 // 한화면에 등장하는 최대 적 객체 수
 
 // function declaration
 int GamePlay();
@@ -45,13 +49,13 @@ extern char second_name[3];
 extern char third_name[3]; // 랭킹의 1, 2, 3등의 이름
 extern int first_score;
 extern int second_score;
-extern int third_score;
-int score=0; // Score
-int life=3, bomb=3; // life
-int stage=1; // stage
-int kx=0, ky=0;
-int speed=7;
-int enemy_draw=0;
+extern int third_score; // 랭킹의 1, 2, 3등의 점수
+int score=0; // 초기 Score
+int life=3, bomb=3; // 초기 life 수, 초기 bomb 수
+int stage=1; // 초기 stage
+int kx=0, ky=0; // missile x,y 좌표를 넣기 위한 변수
+int speed=7; // 초기 적 객체 스피드. 스피드 작을 수록 빨라짐.
+int enemy_draw=0; // 초기 적 객체 갯수
 
 // function definitions
 int GamePlay()
@@ -162,7 +166,7 @@ int GamePlay()
 				break;
 			case 's': // 폭탄 투하
 				Bomb(enemy_life, enemy_x, enemy_y, missilex, missiley);
-			default: // j, k, a가 아닌 키가 눌린 경우 fighter 정지
+			default: // fighter 정지
 				dx=0;
 				break;
 			} // switch
@@ -204,6 +208,7 @@ int GamePlay()
 	return 0;
 }
 
+// DrawGameScreen function definition - 게임 스크린을 그리는 함수
 void DrawGameScreen()
 {
 	int i=0; // for문 변수
@@ -217,7 +222,7 @@ void DrawGameScreen()
 	} // for
 }
 
-// DrawStatus - Status를 그리는 함수
+// DrawStatus function definition - Status를 그리는 함수
 void DrawStatus(int life)
 {
 	gotoxy(GS_WIDTH+3, 3);
@@ -277,13 +282,14 @@ void DrawStatus(int life)
 	gotoxy(GS_WIDTH+2, 23);
 	printf("Sung-Hyun, Lee");
 }
-
-void PrintStage(int stage) // Stage를 찍는 함수
+// PrintStage function definition - stage를 찍는 함수
+void PrintStage(int stage)
 {
 	gotoxy(GS_WIDTH+6, 19);
 	printf("STAGE %d", stage);
 }
-void CountnDraw_Score(realscore) // score를 찍는 함수
+// CountnDraw_Score function definition - score를 찍는 함수
+void CountnDraw_Score(realscore) 
 {
 	gotoxy(SCORE_X, SCORE_Y);
 	printf("%8d", realscore);
@@ -294,10 +300,10 @@ void Enemy_Fighter(int enemy_life[], int enemy_x[])
 	int i;
 
 	for(i=0; i<NoEnemy; i++){
-		if(!enemy_life[i]){
+		if(!enemy_life[i]){ // 조건 - enemy의 life가 있으면
 			enemy_life[i]=1;
-			enemy_x[i]=rand()%50+2; // 적군 비행기 x 좌표 위치 랜덤
-			enemy_draw++;
+			enemy_x[i]=rand()%50+2; // 적 비행기 x 좌표 위치 랜덤
+			enemy_draw++; // 적 비행기 생성
 			break;
 		} // if
 	} // for
@@ -308,7 +314,7 @@ void EnemyFighter_Move(int enemy_x[], int enemy_y[], int enemy_life[])
 	int i;
 
 	for(i=0; i<NoEnemy; i++){
-		if(enemy_life[i]){ // 조건 - enemy의 life가 있으면
+		if(enemy_life[i]){ 
 			gotoxy(enemy_x[i], (enemy_y[i])++);
 			printf("     ");
 			gotoxy(enemy_x[i], enemy_y[i]);
@@ -327,17 +333,17 @@ int check_shot(int enemy_x[], int enemy_y[], int missiley, int missilex, int ene
 		if(missiley == enemy_y[j] && enemy_life[j]==1 && (missilex == enemy_x[j] || missilex == enemy_x[j]+1 || missilex == enemy_x[j]+2 || missilex == enemy_x[j]+3 || missilex == enemy_x[j]+4)){
 			gotoxy(enemy_x[j], enemy_y[j]);
 			printf("     ");
-			enemy_life[j]=0;
+			enemy_life[j]=0; 
 			enemy_x[j]=0;
 			enemy_y[j]=0;
-			enemy_draw--;
+			enemy_draw--; // 적 비행기 사라짐
 			kx=missilex; // kx 라는 변수에 현재 missilex 값을 대입한다.
 			ky=missiley; // ky 라는 변수에 현재 missiley 값을 대입한다.
 			return 1;
 		} // if
 	return 0;
 }
-
+// CheckStage function definition - 해당 점수가 되면 스테이지가 올라가고 그에 따른 스피드 변경하는 함수
 void CheckStage()
 {
 	if(score>10)
@@ -361,12 +367,12 @@ void CheckStage()
 	if(stage==6)
 		speed=1;
 }
-// CheckDie function definition - 적이 y좌표 24에 도달하면 적을 없애고 1을 리턴
+// CheckDie function definition - 적이 y좌표 24에 도달하면 적을 없애고 1을 리턴하는 함수
 int CheckDie(int enemy_x[], int enemy_y[], int enemy_life[])
 {
 	int i;
 	for(i=0; i<NoEnemy; i++)
-		if(enemy_y[i]>=24){
+		if(enemy_y[i]>=24){ // 조건 - 적의 y좌표가 24라면
 			gotoxy(enemy_x[i], enemy_y[i]);
 			printf("     ");
 			enemy_life[i]=0;
@@ -376,26 +382,26 @@ int CheckDie(int enemy_x[], int enemy_y[], int enemy_life[])
 		} // if
 	return 0;
 }
-// clrscr_center function definition - 화면이 가운데부터 사라지는 함수 (from HW 4_3)
+// clrscr_center function definition - 화면이 가운데부터 사라지는 함수
 void clrscr_center() 
 {
 	int x=0, y=0; // 좌표를 나타낼 x, y 값 초기화
 	int i=1; // x좌표의 변화값을 나타내는 변수 초기화
 	int ScreenWidth=80, ScreenHeight=24; // 스크린의 폭과 넓이 지정
 	for(x=ScreenWidth/2; x<=ScreenWidth; x++){ // x축의 위치를 지정하는 for문.
-		for(y=1; y<=ScreenHeight; y++){ // y=1에서 시작, y가 ScreenHeight보다 커지면 loop 탈출.
+		for(y=1; y<=ScreenHeight; y++){ // y=1에서 시작, y가 ScreenHeight보다 커지면 loop문 탈출.
 			gotoxy(x, y); // (x, y)로 이동
 			Sleep(1); // Delay를 준다
 			printf(" "); // 문자열을 지움
 		}
 		x-=i; // x좌표를 왼쪽으로 한 칸 이동.
-		for(y=1; y<=ScreenHeight; y++){ // y=1에서 시작, y가 ScreenHeight보다 커지면 loop 탈출.
-			gotoxy(x, y); // (x, y)로 이동
-			Sleep(1); // Delay를 준다
-			printf(" "); // 문자열을 지움
+		for(y=1; y<=ScreenHeight; y++){ 
+			gotoxy(x, y); 
+			Sleep(1); 
+			printf(" "); 
 		}
 		x+=i; // x좌표를 원상태로 복귀.
-		i+=2; // i 변수에 2를 더함. 다음 loop에서 x좌표 사이의 간격을 벌어지게 함.
+		//i+=2; // i 변수에 2를 더함. 다음 loop에서 x좌표 사이의 간격을 벌어지게 함.
 	}
 }
 // WriteRanking function definition - 랭킹을 계산해 파일에 쓰는 함수
@@ -404,7 +410,7 @@ void WriteRanking(realscore)
 	FILE *rank=NULL; // rank 선언
 	int i=0;
 
-	if(realscore>third_score && realscore<second_score){ // 3등
+	if(realscore>third_score && realscore<second_score){ // 3등 달성
 		clrscr();
 		gotoxy(1,1);
 		third_score=realscore;
@@ -413,29 +419,31 @@ void WriteRanking(realscore)
 		scanf("%s", third_name);
 		i=1;
 	} // if
-	else if(realscore>second_score && realscore<first_score){ // 2등
+	else if(realscore>second_score && realscore<first_score){ // 2등 달성
 		clrscr();
 		gotoxy(1,1);
-		// 2등이 3등이 된다.
+		// 2등을 3등으로 변경.
 		for(i=0; i<3; i++)
 			third_name[3]=second_name[3];
-		third_score=second_score;
+        third_score=second_score;
+		
 		second_score=realscore;
 		printf("2등을 기록하셨습니다! 축하드립니다.\n");
 		printf("이니셜을 입력해주세요 (알파벳 세 자리): ");
 		scanf("%s", second_name);
 		i=1;
 	} // else if
-	else if(realscore>first_score){ // 3등
+	else if(realscore>first_score){ // 1등 달성
 		clrscr();
 		gotoxy(1,1);
-		// 2등이 3등이 되고, 1등이 2등이 된다.
+		// 2등을 3등으로 변경, 1등을 2등으로 변경.
 		for(i=0; i<3; i++){
 			third_name[i]=second_name[i];
 			second_name[i]=first_name[i];
 		} // for
 		third_score=second_score;
 		second_score=first_score;
+		
 		first_score=realscore;
 		printf("1등을 기록하셨습니다! 축하드립니다.\n");
 		printf("이니셜을 입력해주세요 (알파벳 세 자리): ");
@@ -452,6 +460,7 @@ void WriteRanking(realscore)
 		printf("랭킹 파일에 기록되었습니다. 메인 화면으로 이동합니다.\n");
 	} // if
 }
+// Bomb function definition - 폭탄 갯수 계산과 폭탄 사용시 적 비행기 없어지는 함수
 int Bomb(int enemy_life[], int enemy_x[], int enemy_y[], int missilex[], int missiley[])
 {
 	int i, j;
@@ -472,7 +481,7 @@ int Bomb(int enemy_life[], int enemy_x[], int enemy_y[], int missilex[], int mis
 			Sleep(10);
 		} // for
 		Sleep(100);
-		score+=enemy_draw;
+		score+=enemy_draw; // 만들어진 적 수만큼 스코어 오름
 		for(i=0; i<NoEnemy; i++){
 			enemy_life[i]=0;
 			enemy_x[i]=0;
