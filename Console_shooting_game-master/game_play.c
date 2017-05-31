@@ -204,26 +204,31 @@ int GamePlay()
 	return 0;
 }
 
+// ¿¿ ¿¿¿ ¿ ¿¿¿ ¿¿ 
+
 void DrawGameScreen()
 {
-	int i=0; // for¹® º¯¼ö
+	int i=0; // for¿ ¿¿ i¿ ¿¿
+
+	//¿¿ ¿¿¿ ¿ ¿ ¿¿¿('¿')¿¿¿¿ ¿¿¿ ¿¿
 
 	for(i=1; i<=GS_HEIGHT-1; i++){
-		gotoxy(1, i);
+		gotoxy(1, i); //¿¿ ¿¿¿ ¿¿ ¿¿ ¿¿
 		putchar('|');
 
-		gotoxy(GS_WIDTH, i);
+		gotoxy(GS_WIDTH, i); //¿¿ ¿¿¿ ¿¿¿ ¿¿ ¿¿
 		putchar('|');
-	} // for
+	} 
 }
 
-// DrawStatus - Status¸¦ ±×¸®´Â ÇÔ¼ö
+// DrawStatus - Status ¿¿ ¿¿¿ Fighter ¿¿¿¿ ¿¿
 void DrawStatus(int life)
 {
+	//print "Score"
 	gotoxy(GS_WIDTH+3, 3);
 	printf("SCORE");
 
-	// print ranking
+	// print "ranking 1,2,3th"
 	gotoxy(GS_WIDTH+3, 7);
 	printf("Ranking");
 	gotoxy(GS_WIDTH+4, 8);
@@ -233,50 +238,65 @@ void DrawStatus(int life)
 	gotoxy(GS_WIDTH+4, 10);
 	printf("3. %s %d", third_name, third_score);
 	
-	// print bomb
+	// print bomb's number
 	gotoxy(GS_WIDTH+3, 12);
 	printf("Bomb:");
 	gotoxy(GS_WIDTH+2, 13);
+
+	//bomb is 3 times
 	if(bomb==3){
 		printf("                  ");
 		gotoxy(GS_WIDTH+2, 13);
 		printf("BOMB BOMB BOMB");
-	} // if
+	} 
+	
+	// bomb is 2 times
 	else if(bomb==2){
 		printf("                 ");
 		gotoxy(GS_WIDTH+2, 13);
 		printf("BOMB BOMB");
-	} // else if
+	} 
+
+	// bomb is 1 times
 
 	else if(bomb==1){
 		printf("              ");
 		gotoxy(GS_WIDTH+2, 13);
 		printf("BOMB");
-	} // else if
+	} 
+
+	//bomb is 0
 	else if(bomb==0)
 		printf("                  ");
 
-	// print life
+	// print Life's number
 	gotoxy(GS_WIDTH+3, 17);
 	printf("Life:");
 	gotoxy(GS_WIDTH+2, 18);
 
+	// life is 2 times 
 	if(life==3)
-		printf("<-A-> <-A->");
+		printf("<-A-> <-A->"); // 1 life is used for fighter
+
+	//life is 1 times
 	else if(life==2){
 		printf("           ");
 		gotoxy(GS_WIDTH+2, 18);
 		printf("<-A->");
-	} // else if
+	} 
+	
+	// life is 0 times 
 	else if(life==1)
 		printf("           ");
 
-	// print my name
+	// print "Game's Right Holder"
 	gotoxy(GS_WIDTH+5, 22);
 	printf("Made by");
 	gotoxy(GS_WIDTH+2, 23);
 	printf("Sung-Hyun, Lee");
 }
+
+
 
 void PrintStage(int stage) // Stage¸¦ Âï´Â ÇÔ¼ö
 {
