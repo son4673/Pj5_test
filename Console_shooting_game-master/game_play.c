@@ -204,24 +204,24 @@ int GamePlay()
 	return 0;
 }
 
-// ¿¿ ¿¿¿ ¿ ¿¿¿ ¿¿ 
+// Design Game Main outline Funtion 
 
 void DrawGameScreen()
 {
-	int i=0; // for¿ ¿¿ i¿ ¿¿
+	int i=0; // Set int i 
 
-	//¿¿ ¿¿¿ ¿ ¿ ¿¿¿('¿')¿¿¿¿ ¿¿¿ ¿¿
+	//Design Game Main outline character string 'l' 
 
 	for(i=1; i<=GS_HEIGHT-1; i++){
-		gotoxy(1, i); //¿¿ ¿¿¿ ¿¿ ¿¿ ¿¿
+		gotoxy(1, i); //Left outline 
 		putchar('|');
 
-		gotoxy(GS_WIDTH, i); //¿¿ ¿¿¿ ¿¿¿ ¿¿ ¿¿
+		gotoxy(GS_WIDTH, i); //Right outline 
 		putchar('|');
 	} 
 }
 
-// DrawStatus - Status ¿¿ ¿¿¿ Fighter ¿¿¿¿ ¿¿
+// DrawStatus - Fighter information printf Function 
 void DrawStatus(int life)
 {
 	//print "Score"
