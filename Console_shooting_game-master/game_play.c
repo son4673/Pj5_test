@@ -1,5 +1,5 @@
 /*
-	game_play.c: game playing functions
+	game_play.c: game playing functions.
 */
 
 // header files
