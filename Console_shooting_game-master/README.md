@@ -95,9 +95,8 @@ See also the list of [contributors](https://github.com/your/project/contributors
  
 * MoonJeong Jang [cathmjjang](https://github.com/cathmjjang)
  
- 
  
-==============================
+=========================================================================================================================================================
  
  
 # The team5 shooting game
