@@ -32,15 +32,9 @@ visual studio 2015/2010에서 실행을 시켜야합니다.
 일반 컴퓨터에서 설치 및 자유롭게 배포가능합니다.
  
 ## 버전
- 
-Version 1.0
-```
-```
 
-Version 2.0
-```
-```
- 
+분산 버전 관리 시스템인 Git을 사용합니다.
+
 ## 제작자
  
 * **이성현** - *원작자* - [jolacaleb](https://github.com/jolacaleb)
@@ -100,13 +94,7 @@ You can install it freely on a regular computer.
  
 ## Versioning
  
- Version 1.0
- ```
- ```
- 
- Version 2.0
- ```
- ```
+We use Git of Distributed Version Control System.
  
 ## Authors
  
