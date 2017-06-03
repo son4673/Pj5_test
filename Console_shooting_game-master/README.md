@@ -23,9 +23,9 @@ notgame.c
  
 visual studio 2015/2010에서 실행을 시켜야합니다.
 
-## 버그
+## 버그 관리
  
-버그 보고 방법.
+[Bug](https://github.com/son4673/pj5_team5/issues/5)를 올려주세요.
  
 ## 전개
  
@@ -53,9 +53,7 @@ visual studio 2015/2010에서 실행을 시켜야합니다.
 ## 참조 및 도움을 주신 분들.
  
 * MoonJeong Jang [cathmjjang](https://github.com/cathmjjang)
- 
- 
- 
+* [질문](https://github.com/son4673/pj5_team5/issues/6)을 올려주세요.
 
  
  
@@ -86,7 +84,7 @@ You need to run it in visual studio 2015/2010.
  
 ## Bugs
  
-How to report a bug.
+Please upload a [bug](https://github.com/son4673/pj5_team5/issues/5).
  
 ## Deployment
  
@@ -113,3 +111,4 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE.md](LIC
 ## Acknowledgments & Thanks
  
 * MoonJeong Jang [cathmjjang](https://github.com/cathmjjang)
+* Please post your [question](https://github.com/son4673/pj5_team5/issues/6).
