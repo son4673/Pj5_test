@@ -22,41 +22,7 @@ notgame.c
 ### 설치하기
  
 visual studio 2015에서 실행을 시켜야합니다.
- 
-단계설명
- 
-```
-Give the example
-```
- 
-반복
- 
-```
-until finished
-```
- 
-일부 데이터를 시스템에서 가져 오거나 약간의 데모로 사용하는 예제로 끝냅니다.
- 
-## 테스트하기
- 
-이 시스템에 대한 자동화 된 테스트 실행 방법을 설명하십시오.
- 
-### 종단간 테스트
- 
-Explain what these tests test and why
- 
-```
-Give an example
-```
- 
-### 코딩스타일 테스트
- 
-Explain what these tests test and why
- 
-```
-Give an example
-```
- 
+
 ## 버그
  
 버그 보고 방법.
@@ -65,16 +31,15 @@ Give an example
  
 일반 컴퓨터에서 설치 및 자유롭게 배포가능합니다.
  
-## 첨부기능
+## 버전
  
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+Version 1.0
+```
+```
 
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
- 
-## 버전관리
- 
-저희는 [SemVer](http://semver.org/)버전 관리를 사용합니다.
+Version 2.0
+```
+```
  
 ## 제작자
  
@@ -125,40 +90,6 @@ notgame.c
  
 You need to run it in visual studio 2015.
  
-Say what the step will be
- 
-```
-Give the example
-```
- 
-And repeat
- 
-```
-until finished
-```
- 
-End with an example of getting some data out of the system or using it for a little demo
- 
-## Running the tests
- 
-Explain how to run the automated tests for this system
- 
-### Break down into end to end tests
- 
-Explain what these tests test and why
- 
-```
-Give an example
-```
- 
-### And coding style tests
- 
-Explain what these tests test and why
- 
-```
-Give an example
-```
- 
 ## Bugs
  
 How to report a bug.
@@ -167,15 +98,15 @@ How to report a bug.
  
 You can install it freely on a regular computer.
  
-## Built With
- 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
- 
 ## Versioning
  
-We use [SemVer](http://semver.org/) for versioning.
+ Version 1.0
+ ```
+ ```
+ 
+ Version 2.0
+ ```
+ ```
  
 ## Authors
  
