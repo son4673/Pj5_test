@@ -53,6 +53,7 @@ visual studio 2015/2010에서 실행을 시켜야합니다.
 ## 참조 및 도움을 주신 분들.
  
 * MoonJeong Jang [cathmjjang](https://github.com/cathmjjang)
+*  [게임 공략](https://github.com/son4673/pj5_team5/wiki)
 * [질문](https://github.com/son4673/pj5_team5/issues/6)을 올려주세요.
 
  
@@ -111,4 +112,5 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE.md](LIC
 ## Acknowledgments & Thanks
  
 * MoonJeong Jang [cathmjjang](https://github.com/cathmjjang)
+* [Game manipulation](https://github.com/son4673/pj5_team5/wiki)
 * Please post your [question](https://github.com/son4673/pj5_team5/issues/6).
