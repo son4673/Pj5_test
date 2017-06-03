@@ -86,7 +86,6 @@ Give an example
 * **정지운** - *수정자* - [jung1995](https://github.com/jung1995)
  
  
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
  
 ## 라이선스
  
@@ -187,7 +186,6 @@ We use [SemVer](http://semver.org/) for versioning.
 * **YoonUk Kim** - *Modified* - [goaldae](https://github.com/goaldae)
 * **JiWoon Jung** - *Modified* - [jung1995](https://github.com/jung1995)
  
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
  
 ## License
  
